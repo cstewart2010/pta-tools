@@ -1783,7 +1783,7 @@ const updatedValidators = {
                 bsonType: 'string',
               },
               User:{
-                bsonType: 'string',
+                bsonType: 'binData',
               },
               Timestamp:{
                 bsonType: 'string',
