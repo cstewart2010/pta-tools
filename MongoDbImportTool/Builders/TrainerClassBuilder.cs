@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
+using MongoDbImportTool.Enums;
 using MongoDbImportTool.Models;
 
 namespace MongoDbImportTool.Builders
@@ -11,7 +12,7 @@ namespace MongoDbImportTool.Builders
 
         public static void AddClasses()
         {
-            DatabaseHelper.AddDocuments("TrainerClasses", GetClassess(TrainerClassesJson));
+            DatabaseHelper.AddDocuments(nameof(DexType.TrainerClasses), GetClassess(TrainerClassesJson));
         }
 
         private static IEnumerable<TrainerClassModelv1> GetClassess(string path)

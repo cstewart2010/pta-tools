@@ -17,15 +17,15 @@ namespace MongoDbImportTool.Utilities
         /// </summary>
         public string WriteErrorJsonString { get; }
 
-        internal object ToObject()
-        {
-            return JsonConvert.DeserializeObject(WriteErrorJsonString);
-        }
-
         /// <inheritdoc />
         public override string ToString()
         {
             return JsonConvert.SerializeObject(ToObject());
+        }
+
+        private object ToObject()
+        {
+            return JsonConvert.DeserializeObject(WriteErrorJsonString);
         }
     }
 }

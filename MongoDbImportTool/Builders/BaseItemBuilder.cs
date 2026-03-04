@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MongoDbImportTool.Enums;
 using MongoDbImportTool.Models;
 
 namespace MongoDbImportTool.Builders
@@ -15,11 +16,11 @@ namespace MongoDbImportTool.Builders
         {
             TaskHelper.RunAsyncTasks
             (
-                () => DatabaseHelper.AddDocuments("KeyItems", GetItems(KeyItemsJson)),
-                () => DatabaseHelper.AddDocuments("MedicalItems", GetItems(MedicalItemsJson)),
-                () => DatabaseHelper.AddDocuments("Pokeballs", GetItems(PokeballsJson)),
-                () => DatabaseHelper.AddDocuments("PokemonItems", GetItems(PokemonItemsJson)),
-                () => DatabaseHelper.AddDocuments("TrainerEquipment", GetItems(TrainerEquipmentJson))
+                () => DatabaseHelper.AddDocuments(nameof(DexType.KeyItems), GetItems(KeyItemsJson)),
+                () => DatabaseHelper.AddDocuments(nameof(DexType.MedicalItems), GetItems(MedicalItemsJson)),
+                () => DatabaseHelper.AddDocuments(nameof(DexType.Pokeballs), GetItems(PokeballsJson)),
+                () => DatabaseHelper.AddDocuments(nameof(DexType.PokemonItems), GetItems(PokemonItemsJson)),
+                () => DatabaseHelper.AddDocuments(nameof(DexType.TrainerEquipment), GetItems(TrainerEquipmentJson))
             );
         }
 

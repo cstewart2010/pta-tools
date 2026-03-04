@@ -7,7 +7,7 @@ namespace MongoDbImportTool.Models
     /// <summary>
     /// Represents an move in the MoveDex
     /// </summary>
-    public class MoveModelv1 : IDocument, IDexDocument
+    public class MoveModelv1 : IDexDocument
     {
         /// <inheritdoc/>
         public ObjectId _id { get; set; }

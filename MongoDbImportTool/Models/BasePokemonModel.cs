@@ -7,7 +7,7 @@ namespace MongoDbImportTool.Models
     /// <summary>
     /// Represents an pokemon in the PokeDex
     /// </summary>
-    public class BasePokemonModelv1 : IDocument, IDexDocument
+    public class BasePokemonModelv1 : IDexDocument
     {
         /// <inheritdoc/>
         public ObjectId _id { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using MongoDbImportTool.Enums;
 using MongoDbImportTool.Models;
 
 namespace MongoDbImportTool.Builders
@@ -13,7 +14,7 @@ namespace MongoDbImportTool.Builders
         public static void AddOrigins()
         {
             _equipmentToken = JsonHelper.GetToken(OriginEquipmentJson);
-            DatabaseHelper.AddDocuments("Origins", GetOrigins(OriginsJson));
+            DatabaseHelper.AddDocuments(nameof(DexType.Origins), GetOrigins(OriginsJson));
         }
 
         private static IEnumerable<OriginModelv1> GetOrigins(string path)
@@ -41,7 +42,7 @@ namespace MongoDbImportTool.Builders
                 }                
             };
 
-            model.StartingEquipmentList = _equipmentToken[model.Name].ToObject<IEnumerable<StartingEquipment>>();
+            model.StartingEquipmentList = _equipmentToken[model.Name]?.ToObject<IEnumerable<StartingEquipment>>();
             return model;
         }
     }

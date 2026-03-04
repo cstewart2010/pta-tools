@@ -6,7 +6,7 @@ namespace MongoDbImportTool.Models
     /// <summary>
     /// Represents an item in the ItemDex
     /// </summary>
-    public class BaseItemModelV1 : IDocument, IDexDocument
+    public class BaseItemModelV1 : IDexDocument
     {
         /// <inheritdoc/>
         public ObjectId _id { get; set; }

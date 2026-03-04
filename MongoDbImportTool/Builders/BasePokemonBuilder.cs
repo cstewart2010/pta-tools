@@ -11,18 +11,18 @@ namespace MongoDbImportTool.Builders
 {
     internal static class BasePokemonBuilder
     {
-        private static readonly IEnumerable<string> FirstThreeMoves = new[]
-        {
+        private static readonly IEnumerable<string> FirstThreeMoves =
+        [
             "Move 1",
             "Move 2",
             "Move 3"
-        };
-        private static readonly IEnumerable<string> SecondThreeMoves = new[]
-        {
+        ];
+        private static readonly IEnumerable<string> SecondThreeMoves =
+        [
             "Move 4",
             "Move 5",
             "Move 6"
-        };
+        ];
 
         private static readonly string BasePokemonJson = $"{JsonHelper.CurrentDirectory}/json/base_pokemon.min.json";
 
@@ -254,10 +254,10 @@ namespace MongoDbImportTool.Builders
         {
             return new LegendaryStatsModelv1
             {
-                Moves = Array.Empty<string>(),
-                LegendaryMoves = Array.Empty<string>(),
-                Passives = Array.Empty<string>(),
-                Features = Array.Empty<string>()
+                Moves = [],
+                LegendaryMoves = [],
+                Passives = [],
+                Features = []
             };
         }
     }

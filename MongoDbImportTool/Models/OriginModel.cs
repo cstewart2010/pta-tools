@@ -7,7 +7,7 @@ namespace MongoDbImportTool.Models
     /// <summary>
     /// Represents an origin in the OriginDex
     /// </summary>
-    public class OriginModelv1 : IDocument, IDexDocument
+    public class OriginModelv1 : IDexDocument
     {
         /// <inheritdoc/>
         public ObjectId _id { get; set; }

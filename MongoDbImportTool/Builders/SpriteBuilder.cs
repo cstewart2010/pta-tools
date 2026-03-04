@@ -12,22 +12,20 @@ namespace MongoDbImportTool.Builders
 
         public static void AddSprites()
         {
-            var collection = DatabaseUtility.GetAllSprites();
-            foreach (var document in GetSprites(SpritesJson))
+            var collection = DexUtility.GetAllSprites();
+            var documents = GetSprites(SpritesJson).Where(x => collection.All(y => x.Value != y.Value)).ToList();
+            if (documents.Count == 0)
             {
-                if (collection.Any(currentDocument => document.Value == currentDocument.Value))
-                {
-                    continue;
-                }
+                Console.WriteLine($"No new Sprites to add");
+                return;
+            }
+            Console.WriteLine($"Adding new Sprites");
+            var isSuccessful = DexUtility.TryAddSprite(documents, out var error);
 
-                Console.WriteLine($"Adding {document.FriendlyText} to Sprites");
-                var isSuccessful = DatabaseUtility.TryAddSprite(document, out var error);
-
-                if (!isSuccessful)
-                {
-                    Console.WriteLine($"Failed to add {document.FriendlyText} to Sprites");
-                    Console.WriteLine(error.WriteErrorJsonString);
-                }
+            if (!isSuccessful)
+            {
+                Console.WriteLine($"Failed to add all to Sprites");
+                Console.WriteLine(error.WriteErrorJsonString);
             }
         }
 

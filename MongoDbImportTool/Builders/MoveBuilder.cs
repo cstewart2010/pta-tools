@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using MongoDbImportTool.Enums;
 using MongoDbImportTool.Models;
 
 namespace MongoDbImportTool.Builders
@@ -10,7 +11,7 @@ namespace MongoDbImportTool.Builders
 
         public static void AddMoves()
         {
-            DatabaseHelper.AddDocuments("Moves", GetMoves(MovesJson));
+            DatabaseHelper.AddDocuments(nameof(DexType.Moves), GetMoves(MovesJson));
         }
 
         private static IEnumerable<MoveModelv1> GetMoves(string path)

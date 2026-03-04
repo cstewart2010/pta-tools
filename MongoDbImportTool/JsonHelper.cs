@@ -13,15 +13,16 @@ namespace MongoDbImportTool
 {
     internal static class JsonHelper
     {
-        internal static string CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        internal static JToken GetToken(string path)
+        public static readonly string CurrentDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        
+        public static JToken GetToken(string path)
         {
             using var textReader = new StreamReader(path);
             using var reader = new JsonTextReader(textReader);
             return JToken.ReadFrom(reader);
         }
 
-        internal static BaseItemModelV1 BuildItem(JToken itemToken)
+        public static BaseItemModelV1 BuildItem(JToken itemToken)
         {
             return new BaseItemModelV1
             {
@@ -31,7 +32,7 @@ namespace MongoDbImportTool
             };
         }
 
-        internal static FeatureModelv1 BuildFeature(JToken featureToken)
+        public static FeatureModelv1 BuildFeature(JToken featureToken)
         {
             return new FeatureModelv1
             {
@@ -69,7 +70,7 @@ namespace MongoDbImportTool
             return string.Join('/', types);
         }
 
-        internal static IEnumerable<string> BuildSkills(JToken pokemonToken)
+        public static IEnumerable<string> BuildSkills(JToken pokemonToken)
         {
             return pokemonToken.Children<JProperty>()
                 .Where(child => child.Name.Contains("Skill"))

@@ -7,7 +7,7 @@ namespace MongoDbImportTool.Models
     /// <summary>
     /// Represents an trainer class in the TrainerClassDex
     /// </summary>
-    public class TrainerClassModelv1 :  IDocument, IDexDocument
+    public class TrainerClassModelv1 :  IDexDocument
     {
         /// <inheritdoc/>
         public ObjectId _id { get; set; }

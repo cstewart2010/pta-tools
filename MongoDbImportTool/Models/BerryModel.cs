@@ -6,7 +6,7 @@ namespace MongoDbImportTool.Models
     /// <summary>
     /// Represents an berry in the BerryDex
     /// </summary>
-    public class BerryModelv1 : IDocument, IDexDocument
+    public class BerryModelv1 : IDexDocument
     {
         /// <inheritdoc/>
         public ObjectId _id { get; set; }

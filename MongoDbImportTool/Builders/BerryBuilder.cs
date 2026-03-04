@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using MongoDbImportTool.Enums;
 using MongoDbImportTool.Models;
 
 namespace MongoDbImportTool.Builders
@@ -10,7 +11,7 @@ namespace MongoDbImportTool.Builders
 
         public static void AddBerries()
         {
-            DatabaseHelper.AddDocuments("Berries", GetBerries(BerryJson));
+            DatabaseHelper.AddDocuments(nameof(DexType.Berries), GetBerries(BerryJson));
         }
 
         private static IEnumerable<BerryModelv1> GetBerries(string path)
